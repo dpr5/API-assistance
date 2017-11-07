@@ -39,12 +39,12 @@ public class MainActivity extends Activity {
 
         Api api = retrofit.create(Api.class);
 
-        Call<List<Hero>> call = api.getChatLog();
+        Call<List<Chat>> call = api.getChatLog();
 
-        call.enqueue(new Callback<List<Hero>>() {
+        call.enqueue(new Callback<List<Chat>>() {
             @Override
-            public void onResponse(Call<List<Hero>> call, Response<List<Hero>> response) {
-                List<Hero> heroList = response.body();
+            public void onResponse(Call<List<Chat>> call, Response<List<Chat>> response) {
+                List<Chat> heroList = response.body();
 
 
                 //Creating an String array for the ListView
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
             }
 
             @Override
-            public void onFailure(Call<List<Hero>> call, Throwable t) {
+            public void onFailure(Call<List<Chat>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
